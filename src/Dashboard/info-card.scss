@@ -1,0 +1,41 @@
+.card-inner-wrapper 
+ {
+    display: flex;
+    padding-top: 40px;
+    padding-left: 20px;
+    .single-card
+    {
+      width: 300px;
+      height: auto;
+      padding: 15px;
+      display: flex;
+      background-color: #ffffff;
+      border: unset;
+      border-radius: 5px;
+      margin: 0px 10px;
+      .card-image-wrapper 
+        {
+          img 
+           {
+              width: 80px;
+              margin-right: 13px;
+           }
+          
+        }
+      .card-text
+        {
+            .card-count-item
+              {
+                  font-size: 36px;
+                  font-weight: 600;
+                  color: #4f4a52;
+              }
+  
+              .card-count-text 
+               {
+                  font-size: 18px;
+                  font-weight: 500;
+               }
+        }
+    }
+ }
