@@ -56,25 +56,19 @@ const BarChart = () => {
       .then(res => res.json())
       .then(response => {
         getAPiData(response);
+        const transformedData = response.map(item => item.attempted_landings);
+        const transformedData1 = response.map(item => item.successful_landings);
+        setSeries(prevSeries => {
+          const newSeries = JSON.parse(JSON.stringify(prevSeries));
+          newSeries.series[0].data = transformedData;
+          newSeries.series[1].data = transformedData1
+          return newSeries
+        })
+       
         
       })
  },[])
 
-
-
-     useEffect(() => {
-         chartUpdate()
-     },[])
-
-     const chartUpdate = () => 
-       {
-        setSeries((prevSeries) => ({
-          ...prevSeries,
-          series: prevSeries.series.map((item, i) => 
-            i === 1 ? { ...item, data:attemptCount} : item
-          ),
-        }));
-       }
 
       return (
         <Chart options={series.options} series={series.series} type="bar" width={500} height={320} />
